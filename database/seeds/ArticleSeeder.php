@@ -29,11 +29,11 @@ class ArticleSeeder extends Seeder
         $listOfAuthorID = [];
 
         foreach ($authorsList as $author) {
-            $randIndex = array_rand($authorsList, 1);
-            $randAuthor = $authorsList[$randIndex];
+            // $randIndex = array_rand($authorsList, 1);
+            // $randAuthor = $authorsList[$randIndex];
 
             $author = new Author();
-            $author->name = $randAuthor;
+            $author->name = $author;
             $author->author_pic = $faker->imageUrl(360, 360);
             $author->email = $faker->email();
 
@@ -51,14 +51,17 @@ class ArticleSeeder extends Seeder
         ];
 
         for ($i = 0; $i < 50; $i++) {
-            $randIndex = array_rand($categoryList, 1);
-            $randGenre = $categoryList[$randIndex];
+            // $randIndex = array_rand($categoryList, 1);
+            // $randGenre = $categoryList[$randIndex];
 
             $article = new Article();
             $article->title = $faker->sentence();
-            $article->genere = $randGenre;
+            $article->genere = array_rand(array_flip($categoryList), 1);
             $article->main = $faker->paragraph(8);
             $article->picture = $faker->imageUrl(360, 360);
+
+            $authorID = array_rand(array_flip($listOfAuthorID), 1);
+            $article->author_id = $authorID;
 
             $article->save();
         }
