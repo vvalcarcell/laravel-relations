@@ -15,16 +15,19 @@
                 <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
                 <div class="card-details">Genere: {{ $article->genere }}</div>
                 <p class="card-text">{{ $article->main }}</p>
+
+                <a href="{{ route('articles.show', $article)}}">
+                    <button type="button" class="btn btn-primary">View</button>
+                </a>
             </div>
 
-            <a href="{{ route('articles.show', $article)}}">
-                <button type="button" class="btn btn-primary">View</button>
-            </a>
+
         </div>
         @endforeach
 
     </div>
 
+    <div class="d-flex justify-content-center">{{ $articles->links() }}</div>
 
 </div>
 
