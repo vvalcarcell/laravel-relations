@@ -27,7 +27,7 @@
 
     </div>
 
-    <div class="d-flex justify-content-center">{{ $articles->links() }}</div>
+    <div class="d-flex justify-content-center">{{ $articles->onEachSide(1)->links() }}</div>
 
 </div>
 
