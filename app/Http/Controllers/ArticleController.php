@@ -15,7 +15,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(12);
+        $articles = Article::paginate(8);
+
+        foreach ($articles as $article) {
+            $article->main = $this->cutArticle($article->main);
+        }
+
+
         return view('articles.index', compact('articles'));
     }
 
@@ -111,5 +117,12 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function cutArticle($main)
+    {
+        $cutArticle = substr($main, 0, 100);
+        $cutArticle =  $cutArticle . "...";
+        return $cutArticle;
     }
 }

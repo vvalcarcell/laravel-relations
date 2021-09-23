@@ -8,18 +8,21 @@
     <div class="row">
 
         @foreach($articles as $article)
-        <div class="card col-md-3" style="width: 18rem;">
-            <img class="card-img-top" src="{{ $article->picture }}" alt="article image">
-            <div class="card-body">
-                <h5 class="card-title">{{ $article->title }}</h5>
-                <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
-                <div class="card-details">Genere: {{ $article->genere }}</div>
-                <p class="card-text">{{ $article->main }}</p>
-
-                <a href="{{ route('articles.show', $article)}}">
-                    <button type="button" class="btn btn-primary">View</button>
-                </a>
+        <div class="card col-md-3 justify-content-between" style="width: 18rem;">
+            <div>
+                <img class="card-img-top" src="{{ $article->picture }}" alt="article image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $article->title }}</h5>
+                    <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
+                    <div class="card-details">Genere: {{ $article->genere }}</div>
+                    <p class="card-text">{{ $article->main }}</p>
+                </div>
             </div>
+
+
+            <a href="{{ route('articles.show', $article)}}">
+                <button type="button" class="btn btn-primary">View more</button>
+            </a>
 
 
         </div>
