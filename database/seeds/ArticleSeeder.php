@@ -32,13 +32,13 @@ class ArticleSeeder extends Seeder
             // $randIndex = array_rand($authorsList, 1);
             // $randAuthor = $authorsList[$randIndex];
 
-            $author = new Author();
-            $author->name = $author;
-            $author->author_pic = $faker->imageUrl(360, 360);
-            $author->email = $faker->email();
+            $authorObject = new Author();
+            $authorObject->name = $author;
+            $authorObject->author_pic = $faker->imageUrl(360, 360);
+            $authorObject->email = $faker->email();
 
-            $author->save();
-            $listOfAuthorID[] = $author->id;
+            $authorObject->save();
+            $listOfAuthorID[] = $authorObject->id;
         }
 
         $categoryList = [

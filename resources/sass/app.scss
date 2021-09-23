@@ -1,1 +1,29 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+.container {
+    margin-top: 50px;
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+.card-details{
+    font-size: 12px;
+}
+
+p {
+    margin-top: 20px;
+}
+
+.create-route{
+    margin-bottom: 30px;
+}
