@@ -16,6 +16,10 @@
                 <div class="card-details">Genere: {{ $article->genere }}</div>
                 <p class="card-text">{{ $article->main }}</p>
             </div>
+
+            <a href="{{ route('articles.show', $article)}}">
+                <button type="button" class="btn btn-primary">View</button>
+            </a>
         </div>
         @endforeach
 

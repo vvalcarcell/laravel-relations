@@ -5,7 +5,7 @@
 <div class="container">
 
     <div class="card">
-        <img class="card-img-top" src="{{ $article->picture }}" alt="article image">
+        <img class="card-img-top img-show" src="{{ $article->picture }}" alt="article image">
         <div class="card-body">
             <h5 class="card-title"><strong>{{ $article->title }}</strong></h5>
             <p class="card-text">Un articolo di: {{ $article->author->name }}</p>
