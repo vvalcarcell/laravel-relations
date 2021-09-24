@@ -63,7 +63,7 @@ class ArticleController extends Controller
         $article->author_id = $data['author_id'];
         $article->save();
 
-        $article->tags()->sync['tags'];
+        $article->tags()->sync($data['tags']);
 
         return redirect()->route('articles.show', $article);
     }
