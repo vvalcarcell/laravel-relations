@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Article;
 use App\Author;
+use App\Tag;
 
 
 class ArticleSeeder extends Seeder
@@ -41,22 +42,13 @@ class ArticleSeeder extends Seeder
             $listOfAuthorID[] = $authorObject->id;
         }
 
-        $categoryList = [
-            'cronaca',
-            'sport',
-            'opinione',
-            'musica',
-            'cinema',
-            'moda'
-        ];
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             // $randIndex = array_rand($categoryList, 1);
             // $randGenre = $categoryList[$randIndex];
 
             $article = new Article();
             $article->title = $faker->sentence();
-            $article->genere = array_rand(array_flip($categoryList), 1);
             $article->main = $faker->paragraph(8);
             $article->picture = $faker->imageUrl(360, 360);
 
@@ -64,6 +56,26 @@ class ArticleSeeder extends Seeder
             $article->author_id = $authorID;
 
             $article->save();
+        }
+
+        $tagList = [
+            'sport',
+            'opinione',
+            'cinema',
+            'calcio',
+            'Italia',
+            'Europa',
+            'Usa',
+            'moda',
+            'cronaca',
+            'vip',
+            'spettacolo'
+        ];
+
+        foreach ($tagList as $tag) {
+            $tagObj = new Tag();
+            $tagObj->name = $tag;
+            $tagObj->save();
         }
     }
 }
