@@ -14,7 +14,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
-                    <div class="card-details">Genere: {{ $article->genere }}</div>
                     <p class="card-text">{{ $article->main }}</p>
                 </div>
             </div>

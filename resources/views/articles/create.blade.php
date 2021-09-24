@@ -27,18 +27,15 @@
             <input type="text" class="form-control" name="picture" id="picture">
         </div>
 
+        <strong>Autori</strong>
         <div class="form-group">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="genere">Category</label>
-                </div>
-                <select class="custom-select" id="genere" name="genere">
-                    <option selected>Choose...</option>
-                    @foreach($categoryList as $genere)
-                    <option value="{{$genere}}">{{ $genere }}</option>
-                    @endforeach
-                </select>
+            @foreach($tagList as $tag)
+            <div>
+                <input name="tags[]" type="checkbox" value="{{ $tag->id }}">
+                <label>{{$tag->name}}</label>
             </div>
+            @endforeach
+
         </div>
 
         <div class="form-group green-border-focus">

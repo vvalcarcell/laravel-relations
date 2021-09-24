@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Author;
 use App\Article;
+use App\Tag;
 
 class ArticleController extends Controller
 {
@@ -32,16 +33,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $categoryList = [
-            'cronaca',
-            'sport',
-            'opinione',
-            'musica',
-            'cinema',
-            'moda'
-        ];
+        $tagList = Tag::all();
         $authors = Author::all();
-        return view('articles.create', compact('authors', 'categoryList'));
+        return view('articles.create', compact('authors', 'tagList'));
     }
 
     /**
@@ -54,22 +48,22 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:150',
-            'genere' => 'required|string|max:50',
             'main' => 'required',
             'picture' => 'required|url',
             'author_id' => 'required',
+            'tags' => 'required'
         ]);
 
         $data = $request->all();
 
         $article = new Article();
         $article->title = $data['title'];
-        $article->genere = $data['genere'];
         $article->main = $data['main'];
         $article->picture = $data['picture'];
         $article->author_id = $data['author_id'];
         $article->save();
 
+        $article->tags()->sync['tags'];
 
         return redirect()->route('articles.show', $article);
     }

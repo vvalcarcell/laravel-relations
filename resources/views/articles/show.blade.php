@@ -9,7 +9,11 @@
         <div class="card-body">
             <h5 class="card-title"><strong>{{ $article->title }}</strong></h5>
             <p class="card-text">Un articolo di: {{ $article->author->name }}</p>
-            <p class="card-text">Genere: {{ $article->genere }}</p>
+            <p class="card-text">
+                @foreach($article->tag as $tag)
+                {{$tag->name}},
+                @endforeach
+            </p>
             <p class="card-text">{{ $article->main }}</p>
         </div>
     </div>
