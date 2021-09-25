@@ -12350,6 +12350,7 @@ a.text-dark:focus {
 
 p {
   margin-top: 20px;
+  margin-bottom: 0.3rem;
 }
 
 .create-route {
@@ -12365,6 +12366,14 @@ p {
   font-weight: bold;
   padding: 8px;
   margin-bottom: 10px;
+}
+
+.btn-primary {
   margin-left: 20px;
+}
+
+ul {
+  -webkit-padding-start: 30px;
+          padding-inline-start: 30px;
 }
 

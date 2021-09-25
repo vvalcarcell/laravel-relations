@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="container">
+    <div class="row">
+        <h1 class="text-center">NEWSPAPER</h1>
+    </div>
     <div class="row create-route"><a href="{{route('articles.create')}}">Add a new article! <i class="bi bi-brush"></i> </a></div>
 
     <div class="row">
@@ -14,6 +17,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
+                    <div class="card-tags">
+                        @foreach($article->tags as $tag)
+                        <a href="/tag/{{$tag->id}}" class="badge badge-info">{{$tag->name}}</a>,
+                        @endforeach
+                    </div>
                     <p class="card-text">{{ $article->main }}</p>
                 </div>
             </div>

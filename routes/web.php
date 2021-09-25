@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('articles', ArticleController::class);
+
+Route::get('/tag/{tag}', 'TagsController@list');
