@@ -37,7 +37,7 @@
 
     </div>
 
-    <div class="d-flex justify-content-center">{{ $articles->onEachSide(2)->links() }}</div>
+    <div class="row justify-content-center">{{ $articles->onEachSide(2)->links() }}</div>
 
 </div>
 

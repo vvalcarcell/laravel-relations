@@ -7,7 +7,7 @@
         <h1>{{ucwords($tag->name)}}</h1>
     </div>
     <div class="row">
-        <ul>
+        <ul class="list">
             @foreach($tag->articles as $article)
             <li>
                 <a href="{{ route('articles.show', $article)}}">{{$article->title}}</a>
@@ -16,6 +16,12 @@
             @endforeach
         </ul>
 
+    </div>
+
+    <div class="row">
+        <a href="{{ route('articles.index') }}">
+            <button type="button" class="btn btn-danger">Back to Home!</button>
+        </a>
     </div>
 
 </div>
