@@ -13,7 +13,7 @@
                 <p class="card-text">Un articolo di: {{ $article->author->name }}</p>
                 <div class="card-text">
                     @foreach($article->tags as $tag)
-                    <a href="/tag/{{$tag->id}}" class="badge badge-info">{{$tag->name}}</a>,
+                    <a href="{{route('tag.show', $tag)}}" class="badge badge-info">{{$tag->name}}</a>,
                     @endforeach
                 </div>
                 <p class="card-text">{{ $article->main }}</p>

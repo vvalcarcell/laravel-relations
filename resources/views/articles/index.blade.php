@@ -19,7 +19,7 @@
                     <div class="card-details">Un articolo di: {{ $article->author->name }}</div>
                     <div class="card-tags">
                         @foreach($article->tags as $tag)
-                        <a href="/tag/{{$tag->id}}" class="badge badge-info">{{$tag->name}}</a>,
+                        <a href="{{route('tag.show', $tag)}}" class="badge badge-info">{{$tag->name}}</a>,
                         @endforeach
                     </div>
                     <p class="card-text">{{ $article->main }}</p>
@@ -28,7 +28,7 @@
 
 
             <a href="{{ route('articles.show', $article)}}">
-                <button type="button" class="btn btn-primary">View more</button>
+                <button type="button" class="btn btn-primary bhome">View more</button>
             </a>
 
 
