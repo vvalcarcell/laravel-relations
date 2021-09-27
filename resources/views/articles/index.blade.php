@@ -8,6 +8,7 @@
     </div>
     <div class="row create-route"><a href="{{route('articles.create')}}">Add a new article! <i class="bi bi-brush"></i> </a></div>
 
+
     <div class="row">
 
         @foreach($articles as $article)

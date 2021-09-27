@@ -18,16 +18,6 @@
                 </div>
                 <p class="card-text">{{ $article->main }}</p>
 
-                <!-- <div class="comments-box">
-                    @foreach($article->comments as $comment)
-                    <h5>I commenti lasciati dai nostri utenti</h5>
-                    <div class="single-comment">
-                        <div>User</div>
-                        <div>{{$comment->text}}</div>
-                    </div>
-                    @endforeach
-                </div>  -->
-
                 <h5>I commenti lasciati dai nostri utenti:</h5>
 
                 @foreach ($article->comments as $comment)
@@ -43,7 +33,7 @@
                 @endforeach
 
 
-                <div class="comment-section">
+                <div class="add-comment-section">
                     @if($errors->any())
                     <div class="alert alert-danger">
                         <ul>
