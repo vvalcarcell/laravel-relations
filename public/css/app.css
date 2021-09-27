@@ -12381,3 +12381,17 @@ ul {
   margin-bottom: 100px;
 }
 
+.bcomment {
+  margin-top: 10px;
+}
+
+h5 {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.card-header,
+.card-body {
+  padding: 5px 20px;
+}
+

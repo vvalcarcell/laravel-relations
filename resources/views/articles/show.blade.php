@@ -17,6 +17,52 @@
                     @endforeach
                 </div>
                 <p class="card-text">{{ $article->main }}</p>
+
+                <!-- <div class="comments-box">
+                    @foreach($article->comments as $comment)
+                    <h5>I commenti lasciati dai nostri utenti</h5>
+                    <div class="single-comment">
+                        <div>User</div>
+                        <div>{{$comment->text}}</div>
+                    </div>
+                    @endforeach
+                </div>  -->
+
+                <h5>I commenti lasciati dai nostri utenti:</h5>
+
+                @foreach ($article->comments as $comment)
+                <div class="card">
+                    <div class="card-header">
+                        User
+                    </div>
+                    <div class="card-body">
+                        <p>{{$comment->text}}</p>
+                        <footer class="blockquote-footer">Created at: {{$comment->created_at}}</footer>
+                    </div>
+                </div>
+                @endforeach
+
+
+                <div class="comment-section">
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    <form action="{{ route('comments.store')}}" method='POST'>
+                        @csrf
+                        <input type="hidden" id="article_id" name="article_id" value="{{$article->id}}">
+                        <textarea class="form-control" id="text" name="text" rows="2" placeholder="Lascia un commento..."></textarea>
+                        <button type="submit" class="btn btn-primary bcomment">Commenta</button>
+                    </form>
+                </div>
+
+
             </div>
         </div>
     </div>
