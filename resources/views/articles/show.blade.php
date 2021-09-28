@@ -44,9 +44,9 @@
                     </div>
                     @endif
 
-                    <form action="{{ route('comments.store')}}" method='POST'>
+                    <form action="{{ route('comments.store', ['article_id'=>$article->id])}}" method='POST'>
                         @csrf
-                        <input type="hidden" id="article_id" name="article_id" value="{{$article->id}}">
+                        <!-- <input type="hidden" id="article_id" name="article_id" value="{{$article->id}}"> -->
                         <textarea class="form-control" id="text" name="text" rows="2" placeholder="Lascia un commento..."></textarea>
                         <button type="submit" class="btn btn-primary bcomment">Commenta</button>
                     </form>
