@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Author;
 use App\Article;
 use App\Tag;
+use App\Mail\NewArticleCreated;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -64,6 +66,10 @@ class ArticleController extends Controller
         $article->save();
 
         $article->tags()->sync($data['tags']);
+
+        //dopo aver salvato il nuovo articolo, invio una mail
+        Mail::to($article->author->email)->send(new NewArticleCreated($article));
+
 
         return redirect()->route('articles.show', $article);
     }
